@@ -1,19 +1,15 @@
 import React from 'react'
 import TodoCard from './TodoCard'
 
-export default function TodoList() {
+export default function TodoList(props) {
 
-  let tasks = [
-    'Watch The Substance',
-    'Clean room',
-    'Study'
-  ]
+  const { tasks } = props
 
   return (
     <ul className='main'>
       {tasks.map((task, taskIndex) => {
         return (
-          <TodoCard key={taskIndex}>
+          <TodoCard {...props} index={taskIndex} key={taskIndex}>
             <p>{task}</p>
           </TodoCard>
       )
